@@ -2,7 +2,7 @@
 Day 5: How About a Nice Game of Chess?
 
 ## How To Run
-The `dist` directory contains the windows and linux (x86 and x64) binaries.
+The `dist` directory contains the windows and linux binaries.
 Use the following command line arguments:
 
 `chess -input yourinput -part 1`

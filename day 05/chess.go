@@ -6,9 +6,11 @@ import (
 	"flag"
 	"fmt"
 	"strings"
+	"time"
 )
 
 func main() {
+	defer track(time.Now(), "decoding")
 	input := flag.String("input", "ffykfhsq", "input string")
 	part := flag.Int("part", 1, "part 1 or 2?")
 	flag.Parse()
@@ -54,4 +56,9 @@ func findGoodHash(prefix string, i, increment int, c chan<- string, done <-chan 
 func hash(prefix string, i int) string {
 	md5HashInBytes := md5.Sum([]byte(fmt.Sprintf("%v%v", prefix, i)))
 	return hex.EncodeToString(md5HashInBytes[:])
+}
+
+func track(start time.Time, name string) {
+	elapsed := time.Since(start)
+	fmt.Printf(" %s took %s \n", name, elapsed)
 }
