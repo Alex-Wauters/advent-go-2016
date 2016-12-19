@@ -2,8 +2,8 @@
 Day 19: An Elephant Named Joseph
 http://adventofcode.com/2016/day/19
 
-Part 1 finishes in 107 ms, part 2 takes 30 mins on my machine for `n=3004953`. I've made an alternative implementation without cutting/appending a slice,
-but it does not improve the solution significantly.
+Part 1 finishes in 107 ms, part 2 takes 801 ms on my machine for `n=3004953`. 
+Using slice cuts instead of double linked lists takes about 30 mins.
 
 ## Installing Go
 To install Go, see https://golang.org/

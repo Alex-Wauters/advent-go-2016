@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/ring"
 	"fmt"
 	"time"
 )
@@ -44,25 +45,26 @@ func part1() {
 
 func part2() {
 	defer track(time.Now(), "part 2")
-	elves := make([]int, MAX_ELVES)
+	r := ring.New(MAX_ELVES)
+	var beforeOpposite *ring.Ring
 	for i := 0; i < MAX_ELVES; i++ {
-		elves[i] = i + 1 // Elf at position i has number i+1
-	}
-	var next, opp int
-	for {
-		opp = (next + len(elves)/2) % len(elves)
-		elves = append(elves[:opp], elves[opp+1:]...) // Cut the opposite elf from the circle
-		if len(elves) == 1 {
-			fmt.Printf("Part 2: The master thief is elf # %v \n", elves[0])
-			return
-		}
-		if opp > next { // Don't increase next if the element cut took place before it
-			next = next + 1
-		}
-		if next >= len(elves) {
-			next = 0 // If at end of circle, restart circle
+		r.Value = i + 1
+		r = r.Next()
+		if i == MAX_ELVES/2-2 {
+			beforeOpposite = r
 		}
 	}
+	active := r
+	stay := true
+	for remaining := MAX_ELVES; remaining > 1; remaining-- {
+		if !stay {
+			beforeOpposite = beforeOpposite.Next()
+		}
+		beforeOpposite.Unlink(1)
+		stay = !stay
+		active = active.Next()
+	}
+	fmt.Printf("Part 2: The master thief is elf # %v \n", active.Value)
 }
 
 func track(start time.Time, name string) {
