@@ -3,8 +3,8 @@ Day 22: Grid Computing
 http://adventofcode.com/2016/day/22
 
 Calculated part 2 by printing the grid and calculating the route. Printing the grid results in
-
-`0 1 2 3 4 5 6 7 8 9 101112131415161718192021222324252627282930313233
+`````
+0 1 2 3 4 5 6 7 8 9 101112131415161718192021222324252627282930313233
  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . G
  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -34,8 +34,8 @@ Calculated part 2 by printing the grid and calculating the route. Printing the g
  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
- . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .`
- 
+ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+````` 
  The empty disk (_) needs to get right before the Goal data (top row, col 32), by taking a turn around the large nodes which we can't empty (#).
  
  `12` + `25` (to col 32) + `4` (top row)
